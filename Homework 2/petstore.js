@@ -1,19 +1,21 @@
-
 /**
  * This function should calculate the total amount of pet food that should be
  * ordered for the upcoming week.
  * @param numAnimals the number of animals in the store
  * @param avgFood the average amount of food (in kilograms) eaten by the animals
- * 				each week
+ *              each week
  * @return the total amount of pet food that should be ordered for the upcoming
- * 				 week, or -1 if the numAnimals or avgFood are less than 0 or non-numeric
+ *               week, or -1 if the numAnimals or avgFood are less than 0 or non-numeric
  */
 function calculateFoodOrder(numAnimals, avgFood) {
-    // IMPLEMENT THIS FUNCTION!
+  if (numAnimals >= 0 && avgFood >= 0) {
+    return numAnimals * avgFood;
+  }
+  return -1;
 }
 
 /**
- * Determines which day of the week had the most nnumber of people visiting the
+ * Determines which day of the week had the most number of people visiting the
  * pet store. If more than one day of the week has the same, highest amount of
  * traffic, an array containing the days (in any order) should be returned.
  * (ex. ["Wednesday", "Thursday"]). If the input is null or an empty array, the function
@@ -22,7 +24,24 @@ function calculateFoodOrder(numAnimals, avgFood) {
  * @return a string containing the name of the most popular day of the week if there is only one most popular day, and an array of the strings containing the names of the most popular days if there are more than one that are most popular
  */
 function mostPopularDays(week) {
-    // IMPLEMENT THIS FUNCTION!
+  if (week == null || week.length == 0) {
+    return null;
+  }
+  var maxTraffic = 0;
+  var mostPopular = [];
+  for (var i = 0; i < week.length; i++) {
+    if (week[i].traffic > maxTraffic) {
+      maxTraffic = week[i].traffic;
+      mostPopular = [];
+      mostPopular.push(week[i].name);
+    } else if (week[i].traffic == maxTraffic) {
+      mostPopular.push(week[i].name);
+    }
+  }
+  if (mostPopular.length == 1) {
+    return mostPopular[0];
+  }
+  return mostPopular;
 }
 
 
@@ -38,7 +57,15 @@ function mostPopularDays(week) {
  *         empty array if the array's lengths are unequal or zero, or if any array is null.
  */
 function createAnimalObjects(names, types, breeds) {
-    // IMPLEMENT THIS FUNCTION!
+  var animals = [];
+  if (names != null && types != null && breeds != null &&
+    names.length == types.length && names.length == breeds.length) {
+    len = names.length; // == types.lenght, == breeds.length
+    for (var i = 0; i < len; i++) {
+      animals.push(new Animal(names[i], types[i], breeds[i]));
+    }
+  }
+  return animals;
 }
 
 /////////////////////////////////////////////////////////////////
@@ -51,27 +78,27 @@ function createAnimalObjects(names, types, breeds) {
 /**
  * A prototype to create Weekday objects
  */
-function Weekday (name, traffic) {
-    this.name = name;
-    this.traffic = traffic;
+function Weekday(name, traffic) {
+  this.name = name;
+  this.traffic = traffic;
 }
 
 /**
  * A prototype to create Item objects
  */
-function Item (name, barcode, sellingPrice, buyingPrice) {
-     this.name = name;
-     this.barcode = barcode;
-     this.sellingPrice = sellingPrice;
-     this.buyingPrice = buyingPrice;
+function Item(name, barcode, sellingPrice, buyingPrice) {
+  this.name = name;
+  this.barcode = barcode;
+  this.sellingPrice = sellingPrice;
+  this.buyingPrice = buyingPrice;
 }
- /**
-  * A prototype to create Animal objects
-  */
-function Animal (name, type, breed) {
-    this.name = name;
-     this.type = type;
-     this.breed = breed;
+/**
+ * A prototype to create Animal objects
+ */
+function Animal(name, type, breed) {
+  this.name = name;
+  this.type = type;
+  this.breed = breed;
 }
 
 
@@ -80,6 +107,5 @@ function Animal (name, type, breed) {
  * from your browser's console.
  */
 function helloworld() {
-    return 'hello world!';
+  return 'hello world!';
 }
-
