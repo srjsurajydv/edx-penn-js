@@ -63,42 +63,29 @@ ul {
   background-color: #ddd;
 }
 
-.event.dog-walk {
+.event {
   border-radius: 5px;
   color: #10171C;
   padding: 5px;
   margin: 5px 0;
+}
+
+.dog-walk {
   background-color: #A6F4FF;
 }
 
-.event.school {
-  border-radius: 5px;
-  color: #10171C;
-  padding: 5px;
-  margin: 5px 0;
+.school {
   background-color: #BA9CE8;
 }
 
-.event.appointment {
-  border-radius: 5px;
-  color: #10171C;
-  padding: 5px;
-  margin: 5px 0;
+.appointment {
   background-color: #FF7E6D;
 }
 
-.event.birthday {
-  border-radius: 5px;
-  color: #10171C;
-  padding: 5px;
-  margin: 5px 0;
+.birthday {
   background-color: #AFFFAD;
 }
 
-.event.holiday {
-  border-radius: 5px;
-  color: #10171C;
-  padding: 5px;
-  margin: 5px 0;
+.holiday {
   background-color: #E8E193;
 }
