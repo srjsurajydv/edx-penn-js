@@ -1,4 +1,3 @@
-//TODO: figure out when to reset operation and input
 'use strict';
 
 var result = null;
