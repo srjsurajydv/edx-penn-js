@@ -71,25 +71,26 @@ $('#clearButton').click(function () {
 });
 
 function equals(input, operation) {
-  switch (operation) {
-    case 'add':
-      result += input;
-      break;
-    case 'subtract':
-      result -= input;
-      break;
-    case 'multiply':
-      result *= input;
-      break;
-    case 'divide':
-      result /= input;
-      break;
-    default:
-      if (result == null) {
-        result = input;
-      }
-      // console.log('Operation unknown');
-      break;
+  if (result != null) {
+    switch (operation) {
+      case 'add':
+        result += input;
+        break;
+      case 'subtract':
+        result -= input;
+        break;
+      case 'multiply':
+        result *= input;
+        break;
+      case 'divide':
+        result /= input;
+        break;
+      default:
+        // console.log('Operation unknown');
+        break;
+    }
+  } else {
+    result = input;
   }
   lastInput = input;
   lastOperation = operation;
