@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class AddList extends Component {
 
-
   handleSubmit(e) {
     e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
 
@@ -25,6 +24,7 @@ class AddList extends Component {
       </div>
     );
   }
+  
 }
 
 export default AddList;

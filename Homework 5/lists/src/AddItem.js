@@ -5,16 +5,17 @@ class AddItem extends Component {
   constructor() {
     super();
     this.state = {
-      newItem:{}
+      newItem: {}
     }
   }
 
   handleSubmit(e) {
-      e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
-
-      // Implement the rest of this function here!
+    e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
+    this.setState({ list: this.props.idName, newItem: this.refs.id.value },
+      function () {
+        this.props.addItem(this.state);
+      });
   }
-    
 
   render() {
     var divName = 'add' + this.props.idName;

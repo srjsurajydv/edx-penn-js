@@ -24,7 +24,7 @@ class App extends Component {
     lists.push(s.name);
     var items = this.state.items;
     items[s.name] = [];
-    this.setState({ lists: lists, items: items});
+    this.setState({ lists: lists, items: items });
   }
 
   /**
@@ -36,14 +36,18 @@ class App extends Component {
    * the state, this function  should then re-render this App component.
    */
   handleAddItem(s) {
-    // Implement this function!
+    var items = this.state.items;
+    var list = s.list;
+    var item = { name: s.newItem };
+    items[list].push(item);
+    this.setState({ items: items });
   }
 
   /**
    * Renders the component.
    */
   render() {
-    // console.log(this.state);
+    console.log('APPSTATE/', this.state);
     return (
       <div className="App">
         <AddList addList={this.handleAddList.bind(this)} />
