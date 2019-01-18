@@ -22,9 +22,9 @@ class FontChooser extends React.Component {
       hidden: true,
       checked: this.props.bold,
       size: size,
-      min: min,
-      max: max,
-      defaultSize: size
+      minProp: min,
+      maxProp: max,
+      sizeProp: size
     };
   }
 
@@ -33,7 +33,7 @@ class FontChooser extends React.Component {
     var weight = this.state.checked ? 'bold' : 'normal';
     var hidden = this.state.hidden;
     var checked = this.state.checked;
-    var color = (size == this.state.min || size == this.state.max) ?
+    var color = (size == this.state.minProp || size == this.state.maxProp) ?
       'red' : 'black';
     return (
       <div>
@@ -69,19 +69,19 @@ class FontChooser extends React.Component {
   }
 
   handleDecrease() {
-    if (this.state.size > this.state.min) {
+    if (this.state.size > this.state.minProp) {
       this.setState({ size: this.state.size - 1 });
     }
   }
 
   handleIncrease() {
-    if (this.state.size < this.state.max) {
+    if (this.state.size < this.state.maxProp) {
       this.setState({ size: this.state.size + 1 });
     }
   }
 
   handleSizeDblClick() {
-    this.setState({ size: this.state.defaultSize });
+    this.setState({ size: this.state.sizeProp });
   }
 }
 
