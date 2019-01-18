@@ -21,16 +21,14 @@ class AddItem extends Component {
     var divName = 'add' + this.props.idName;
     return (
       <div className='addItemDiv'>
-      <h4>Add {this.props.idName}</h4>
-      <form ref='form' onSubmit={this.handleSubmit.bind(this)}>
-      <div id={divName} ref={divName}>
-        <label>Name</label><br />
-        <input type='text' ref='id' />
-        </div>
-        <br />
-        <input type='submit' value='Submit' />
-        <br />
-      </form>
+        <h4>Add {this.props.idName}</h4>
+        <form ref='form' onSubmit={this.handleSubmit.bind(this)}>
+          <div id={divName} ref={divName}>
+            <label>Name</label><br />
+            <input type='text' ref='id' />
+          </div><br />
+          <input type='submit' value='Submit' /><br />
+        </form>
       </div>
     );
   }
